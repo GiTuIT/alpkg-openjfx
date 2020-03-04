@@ -1,5 +1,6 @@
 # Contributor: Sasha Gerrand <alpine-pkgs@sgerrand.com>
 # Maintainer: Sasha Gerrand <alpine-pkgs@sgerrand.com>
+# GiTuIT has made a slight modification to this :)
 pkgname=java-openjfx
 _java_ver=8
 _jdk_update=151
