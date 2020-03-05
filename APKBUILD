@@ -20,11 +20,11 @@ depends="openjdk8-jre-base
 	webkit2gtk"
 makedepends="openjdk8
 	bash 
-	fmpeg-dev
+	ffmpeg-dev
 	gtk+2.0-dev
-	ibc-dev
+	libc-dev
 	libjpeg-turbo-dev
-	ibxtst-dev
+	libxtst-dev
 	ncurses
 	pango-dev
 	python2
