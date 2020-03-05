@@ -12,8 +12,24 @@ pkgdesc="Java OpenJFX 8 client application platform (open-source implementation 
 url="https://wiki.openjdk.java.net/display/OpenJFX/Main"
 arch="all"
 license="GPL"
-depends="openjdk8-jre-base ffmpeg gstreamer libxtst qt5-qtbase webkit2gtk"
-makedepends="openjdk8 bash ffmpeg-dev gtk+2.0-dev libc-dev libjpeg-turbo-dev libxtst-dev ncurses pango-dev python2 unzip webkit2gtk-dev"
+depends="openjdk8-jre-base
+	ffmpeg
+	gstreamer
+	libxtst
+	qt5-qtbase
+	webkit2gtk"
+makedepends="openjdk8
+	bash 
+	fmpeg-dev
+	gtk+2.0-dev
+	ibc-dev
+	libjpeg-turbo-dev
+	ibxtst-dev
+	ncurses
+	pango-dev
+	python2
+	unzip
+	webkit2gtk-dev"
 install=""
 subpackages="$pkgname-dev $pkgname-doc"
 source="http://hg.openjdk.java.net/openjfx/8u-dev/rt/archive/${_hgtag}.tar.bz2
@@ -65,9 +81,10 @@ package() {
 	local _carch
 
 	case "$CARCH" in
-		"x86"	) _carch=i386	;;
-		"x86_64") _carch=amd64	;;
-		*	) return 1	;;
+		"x86"	  ) _carch=i386	  ;;
+		"x86_64"  ) _carch=amd64	  ;;
+		"aarch64" ) _carch=aarch64 ;; #Test it
+		*	  ) return 1	  ;;
 	esac
 
 	install -d "${pkgdir}${_openjdk8dir}/jre/lib/${_carch}"
