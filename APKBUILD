@@ -38,7 +38,9 @@ source="http://hg.openjdk.java.net/openjfx/8u-dev/rt/archive/${_hgtag}.tar.bz2
         02-jfxpanel.patch
         03-musl-compatibility.patch
         04-fix-gcc-sentinel-warnings.patch
-        17-gcc-compatibility.patch"
+        17-gcc-compatibility.patch
+	fix-arm32-build.patch
+	fix-arm64-build.patch"
 builddir="$srcdir/rt-${_hgtag}"
 
 prepare() {
@@ -81,9 +83,7 @@ package() {
 	local _carch
 
 	case "$CARCH" in
-		"x86"	  ) _carch=i386	  ;;
-		"x86_64"  ) _carch=amd64	  ;;
-		"aarch64" ) _carch=aarch64 ;; #Test it
+		"arm"     ) _carch=arm    ;; #Testing
 		*	  ) return 1	  ;;
 	esac
 
@@ -128,4 +128,6 @@ sha512sums="e9c3c403528736b5a03882f72abdf7965ba9deea59ef4ef31d81d724d0e5d3dc36d9
 cafd180d3058ed1f871a70e11625a9b4e92850a80f106fa8a3e2fe2d88b94c01525b45a6d97b69e38b53bcd499c9a6573879326308d45f5abbc2b79e0bfb4312  02-jfxpanel.patch
 fd92bd256d6efedc45dd4abaa00967483688575215a11227e3eff60ac36979b50915f59953c662a66dafcce704a94d41694b3ad257add4cce182e29e0b817911  03-musl-compatibility.patch
 64afb23bb14595654b21baa20143c85a708e748b955a86c2a456853ee791d79f66ff8a266b1ae338ef15199ec0b49e8bd31a651439953eb183f5d51f3e6a281d  04-fix-gcc-sentinel-warnings.patch
-3014256ebf5d15f0c8a2b6a25cea024914722eb22fe594f56e2ca60d0be94e95ec3ae07fa40c2d5e7242b491c2dbc903190a86e08491ff5247ec8c886ec77679  17-gcc-compatibility.patch"
+3014256ebf5d15f0c8a2b6a25cea024914722eb22fe594f56e2ca60d0be94e95ec3ae07fa40c2d5e7242b491c2dbc903190a86e08491ff5247ec8c886ec77679  17-gcc-compatibility.patch
+wait to add fix-arm32-build.patch
+wait to add fix-arm64-build.patch"
