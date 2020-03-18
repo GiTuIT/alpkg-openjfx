@@ -82,8 +82,7 @@ package() {
 
 	case "$CARCH" in
 		"x86"	  ) _carch=i386	  ;;
-		"x86_64"  ) _carch=amd64	  ;;
-		"aarch64" ) _carch=aarch64 ;; #Test it
+		"x86_64"  ) _carch=amd64  ;;
 		*	  ) return 1	  ;;
 	esac
 
